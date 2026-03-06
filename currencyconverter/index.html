@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SHAMAD Currency Converter — Real-Time Exchange</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <main class="app-wrapper">
+
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">💱</span>
+        <span class="logo-text">SHAMAD <span class="logo-accent">EXCHANGE</span></span>
+      </div>
+      <div class="live-badge">
+        <span class="pulse-dot"></span>
+        <span>LIVE RATES</span>
+      </div>
+    </header>
+
+    <section class="converter-card" role="main" aria-label="Currency Converter">
+      <div class="card-inner">
+
+        <div class="card-title-block">
+          <h1>Shamad<br/><em>Currency Converter</em></h1>
+          <p class="subtitle">⚡ Real-time exchange rates — powered by Shamad Exchange</p>
+        </div>
+
+        <div class="converter-form">
+
+          <div class="field-group">
+            <label for="amount" class="field-label">AMOUNT</label>
+            <div class="input-wrapper">
+              <span class="input-icon">◈</span>
+              <input
+                type="number"
+                id="amount"
+                class="field-input"
+                placeholder="0.00"
+                value="1"
+                min="0"
+                step="any"
+                aria-label="Amount to convert"
+              />
+            </div>
+          </div>
+
+          <div class="currency-row">
+
+            <div class="field-group flex-1">
+              <label for="from-currency" class="field-label">FROM</label>
+              <div class="select-wrapper">
+                <select id="from-currency" class="field-select" aria-label="From currency"></select>
+                <span class="select-chevron">⌄</span>
+              </div>
+            </div>
+
+            <div class="swap-wrap">
+              <button class="swap-btn" id="swap-btn" title="Swap currencies" aria-label="Swap currencies">
+                <span class="swap-icon">⇄</span>
+              </button>
+            </div>
+
+            <div class="field-group flex-1">
+              <label for="to-currency" class="field-label">TO</label>
+              <div class="select-wrapper">
+                <select id="to-currency" class="field-select" aria-label="To currency"></select>
+                <span class="select-chevron">⌄</span>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="convert-btn" id="convert-btn" aria-label="Convert currency">
+            <span class="btn-icon">💱</span>
+            <span class="btn-text">Convert Currency</span>
+            <span class="btn-arrow">⚡</span>
+            <div class="btn-shimmer"></div>
+          </button>
+
+        </div>
+
+        <div class="result-panel" id="result-panel" aria-live="polite" aria-atomic="true">
+          <div class="result-inner" id="result-inner">
+            <div class="result-idle">
+              <span class="idle-icon">💱</span>
+              <span>Enter an amount and press Convert Currency</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rate-strip hidden" id="rate-strip">
+          <div class="rate-item">
+            <span class="rate-label">RATE</span>
+            <span class="rate-value mono" id="rate-display">—</span>
+          </div>
+          <div class="rate-divider"></div>
+          <div class="rate-item">
+            <span class="rate-label">UPDATED</span>
+            <span class="rate-value mono" id="rate-timestamp">—</span>
+          </div>
+          <div class="rate-divider"></div>
+          <div class="rate-item">
+            <span class="rate-label">INVERSE</span>
+            <span class="rate-value mono" id="rate-inverse">—</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="quick-bar" aria-label="Quick currency pairs">
+      <div class="quick-label">POPULAR PAIRS</div>
+      <div class="quick-pairs" id="quick-pairs">
+        <button class="pair-chip" data-from="USD" data-to="EUR">USD / EUR</button>
+        <button class="pair-chip" data-from="USD" data-to="GBP">USD / GBP</button>
+        <button class="pair-chip" data-from="USD" data-to="JPY">USD / JPY</button>
+        <button class="pair-chip" data-from="EUR" data-to="GBP">EUR / GBP</button>
+        <button class="pair-chip" data-from="USD" data-to="CAD">USD / CAD</button>
+        <button class="pair-chip" data-from="USD" data-to="INR">USD / INR</button>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <span>💱 Shamad Currency Converter</span>
+      <span class="footer-dot">·</span>
+      <span>Data via ExchangeRate-API.com</span>
+      <span class="footer-dot">·</span>
+      <span>Rates refresh on each conversion</span>
+    </footer>
+
+    <div class="creator-credit">
+      created by <span class="creator-name">md abdush shamad azam</span>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
